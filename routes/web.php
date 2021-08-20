@@ -13,9 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'Publico\HomeController@index')->name('publico.home.index');
+Route::get('/', [App\Http\Controllers\Publico\HomeController::class, 'index'])->name('publico.home.index');
 
 
 Auth::routes();
+
+Route::middleware('auth')->namespace('Restrito')->group(function() {
+    Route::get('/restrito', 'IndexController@index')->name('restrito.index.index');
+});
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
