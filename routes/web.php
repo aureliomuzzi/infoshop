@@ -19,7 +19,5 @@ Route::get('/', [App\Http\Controllers\Publico\HomeController::class, 'index'])->
 Auth::routes();
 
 Route::middleware('auth')->namespace('Restrito')->group(function() {
-    Route::get('/restrito', 'IndexController@index')->name('restrito.index.index');
+    Route::get('/restrito', [App\Http\Controllers\Restrito\HomeController::class, 'home'])->name('restrito.home');
 });
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
