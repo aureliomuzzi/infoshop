@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Restrito\CategoriaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,11 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [App\Http\Controllers\Publico\HomeController::class, 'index'])->name('publico.home.index');
-
-
 Auth::routes();
 
-Route::middleware('auth')->namespace('Restrito')->group(function() {
+Route::get('/', [App\Http\Controllers\Publico\HomeController::class, 'index'])->name('publico.home.index');
+
+Route::middleware('auth')->group(function() {
     Route::get('/restrito', [App\Http\Controllers\Restrito\HomeController::class, 'home'])->name('restrito.home');
+    Route::resource('categorias', CategoriaController::class);
 });
