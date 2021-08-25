@@ -21,7 +21,12 @@ Route::get('/', [App\Http\Controllers\Publico\HomeController::class, 'index'])->
 
 Route::middleware('auth')->group(function() {
     Route::get('/restrito', [App\Http\Controllers\Restrito\HomeController::class, 'home'])->name('restrito.home');
-    Route::resource('categorias', CategoriaController::class);
+
+    Route::name('restrito.')->group(function() {
+        Route::resource('/restrito/categorias', CategoriaController::class);
+    });
+
+    //Route::resource('categorias', CategoriaController::class);
     Route::resource('produtos', ProdutoController::class);
 });
 
