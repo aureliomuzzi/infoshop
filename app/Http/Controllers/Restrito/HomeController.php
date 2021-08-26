@@ -6,8 +6,8 @@ use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {
-    public function home()
+    public function index()
     {
-        return view('restrito.index');
+        return view('restrito.home');
     }
 }

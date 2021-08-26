@@ -44,7 +44,7 @@
                         <ul class="list-unstyled list-inline">
                             <li class="dropdown dropdown-small">
                                 <ul>
-                                    <a href="{{ route('restrito.home') }}"><i class="fa fa-user"></i> Área Restrita </a>
+                                    <a href="{{ route('restrito.home.index') }}"><i class="fa fa-user"></i> Área Restrita </a>
                                 </ul>
                             </li>
                         </ul>

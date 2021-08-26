@@ -29,33 +29,20 @@
         @endif
 
         @if (isset($categoria))
-            {!! Form::model($categoria, ['route' => ['restrito.categorias.update', $categoria->id], 'method' => 'PUT']) !!}
+            {!! Form::model($categoria, ['route' => ['categorias.update', $categoria->id], 'method' => 'PUT']) !!}
         @else
-            {!! Form::open(['url' => route('restrito.categorias.store'), 'files' => true]) !!}
+            {!! Form::open(['url' => route('categorias.store'), 'files' => true]) !!}
         @endif
 
-        {{-- @if (isset($categoria))
-            <form action="/categorias/{{ $categoria->id }}" method="POST">
-            @method('PUT')
-        @else
-            <form action="/categorias" method="POST" enctype="multipart/form-data">
-        @endif --}}
-            @csrf
+        <div class="form-group">
+            {!! Form::label('descricao', 'Nome da Descrição') !!}
+            {!! Form::text('descricao', isset($categoria) ? $categoria->descricao : null, ['class' => 'form-control', 'required' => 'required']) !!}
+        </div>
 
-            <div class="form-group">
-                {{-- <label for="descricao">Nome da Descrição</label>
-                <input type="text" name="descricao" placeholder="Digite a descrição da categoria" class="form-control" value="{{ isset($categoria) ? $categoria->descricao : null }}"> --}}
-
-                {!! Form::label('descricao', 'Nome da Descrição') !!}
-                {!! Form::text('descricao', isset($categoria) ? $categoria->descricao : null, ['class' => 'form-control', 'required' => 'required']) !!}
-            </div>
-
-            <button type="submit" class="btn btn-primary">Salvar</button>
-            {{-- {!! Form::button('<span class="fa fa-fw fa-caret-square-o-right"></span> Continuar', ['type'=>'submit','class' => 'btn btn-primary']); !!} --}}
-            {!! Form::close() !!}
-        </form>
+        {!! Form::button('Salvar', ['type'=>'submit','class' => 'btn btn-outline-primary']); !!}
+        {!! Form::close() !!}
         <hr>
     </div>
 </div>
+@endsection
 
-@stop
