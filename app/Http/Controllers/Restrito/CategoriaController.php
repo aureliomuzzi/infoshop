@@ -15,7 +15,7 @@ class CategoriaController extends Controller
      */
     public function index()
     {
-        $categorias = Categoria::paginate(10);
+        $categorias = Categoria::paginate(3);
 
         return view('restrito.categorias.index', [
             'categorias' => $categorias
@@ -40,9 +40,9 @@ class CategoriaController extends Controller
      */
     public function store(CategoriaRequest $request)
     {
-        $dados = $request->all(); 
+        $dados = $request->all();
         Categoria::create($dados);
-        
+
         return redirect()->back()->with('mensagem', 'Registro criado com sucesso!');
     }
 
@@ -81,7 +81,7 @@ class CategoriaController extends Controller
     {
         $dados = $request->all();
         $categoria->update($dados);
-        
+
         return redirect()->back()->with('mensagem', 'Registro atualizado com sucesso!');
     }
 

@@ -24,8 +24,8 @@
         @endif
 
         <a href="/categorias/create" class="btn btn-primary mb-5">Nova Categoria</a>
-    
-        <table class="table table-striped">
+
+        <table class="table table-striped data-table">
             <thead>
                 <tr>
                     <th>Ações</th>
@@ -37,11 +37,11 @@
                 @foreach ($categorias as $categoria)
                     <tr>
                         <td>
-                            <a href="/categorias/{{ $categoria->id }}/edit" class="btn btn-primary btn-sm">Editar</a>
+                            <a href="/categorias/{{ $categoria->id }}/edit" class="btn btn-outline-primary btn-sm">Editar</a>
                             <form action="/categorias/{{ $categoria->id }}" class="d-inline-block" method="POST" onSubmit="confirmarExclusao(event)">
                                 @csrf
                                 @method('DELETE')
-                                <button class="btn btn-sm btn-danger">Excluir</button>
+                                <button class="btn btn-sm btn-outline-danger">Excluir</button>
                             </form>
                         </td>
                         <td>{{ $categoria->descricao }}</td>
@@ -49,32 +49,6 @@
                 @endforeach
             </tbody>
         </table>
-        
-        {{ $categorias->links() }}
     </div>
 </div>
-{{-- <script>
-    function confirmarExclusao(event) {
-    event.preventDefault();
-    swal({
-        title: "Voce tem certeza que deseja excluir esse registro?",
-        icon: "warning",
-        dangerMode: true,
-        buttons: {
-        cancel: "Cancelar",
-        catch: {
-            text: "Excluir",
-            value: true,
-        },
-        }
-    })
-    .then((willDelete) => {
-        if (willDelete) {
-        event.target.submit();
-        } else {
-        return false;
-        }
-    });
-    }
-</script> --}}
 @stop

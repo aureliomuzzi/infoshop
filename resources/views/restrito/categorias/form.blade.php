@@ -29,18 +29,23 @@
         @endif
 
         @if (isset($categoria))
-            {!! Form::model($categoria, ['route' => ['categorias.update', $categoria->id], 'method' => 'PUT']) !!}
+            <form action="/categorias/{{ $categoria->id }}" method="POST">
+            @method('PUT')
         @else
-            {!! Form::open(['url' => route('categorias.store'), 'files' => true]) !!}
+            <form action="/categorias" method="POST" enctype="multipart/form-data">
         @endif
 
+        @csrf
+
         <div class="form-group">
-            {!! Form::label('descricao', 'Nome da Descrição') !!}
-            {!! Form::text('descricao', isset($categoria) ? $categoria->descricao : null, ['class' => 'form-control', 'required' => 'required']) !!}
+            <label for="descricao">Nome da Descricao</label>
+            <input type="text" name="descricao" placeholder="Digite o nome da descrição" class="form-control" value="{{ isset($categoria) ? $categoria->descricao : null }}">
         </div>
 
-        {!! Form::button('Salvar', ['type'=>'submit','class' => 'btn btn-outline-primary']); !!}
-        {!! Form::close() !!}
+        <button type="submit" class="btn btn-primary">Salvar</button>
+
+        </form>
+
         <hr>
     </div>
 </div>

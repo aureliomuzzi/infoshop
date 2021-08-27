@@ -102,6 +102,13 @@
     @endif
 
     {{-- Custom Scripts --}}
+    @yield('adminlte_js')
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.0/js/jquery.dataTables.min.js" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.0/css/jquery.dataTables.min.css" />
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
     <script>
         function confirmarExclusao(event) {
             event.preventDefault();
@@ -125,8 +132,12 @@
                 }
             });
         }
+
+        $(document).ready( function () {
+            $('#data-table').DataTable();
+        } );
     </script>
-    @yield('adminlte_js')
+    @yield('javascript')
 
 </body>
 
