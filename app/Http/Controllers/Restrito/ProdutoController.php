@@ -29,18 +29,24 @@ class ProdutoController extends Controller
         return redirect()->back()->with('mensagem', 'Registro criado com sucesso!');
     }
 
-    public function edit()
+    public function edit(Produto $produto)
     {
-
+        return view('restrito.produtos.form', [
+            'produto' => $produto
+        ]);
     }
 
-    public function update()
+    public function update(ProdutoRequest $request, Produto $produto)
     {
-
+        $dados = $request->all();
+        $produto->update($dados);
+        
+        return redirect()->back()->with('mensagem', 'Registro atualizado com sucesso!');
     }
 
-    public function delete()
+    public function destroy(Produto $produto)
     {
-
+        $produto->delete();
+        return redirect('/produtos')->with('mensagem', 'Registro excluído com sucesso!');
     }
 }

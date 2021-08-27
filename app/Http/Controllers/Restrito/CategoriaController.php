@@ -94,7 +94,6 @@ class CategoriaController extends Controller
     public function destroy(Categoria $categoria)
     {
         $categoria->delete();
-
         return redirect('/categorias')->with('mensagem', 'Registro excluído com sucesso!');
     }
 }
