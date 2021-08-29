@@ -25,7 +25,7 @@
 
         <a href="/categorias/create" class="btn btn-primary mb-5">Nova Categoria</a>
 
-        <table class="table table-striped data-table">
+        <table id="datatable" class="table table-striped data-table">
             <thead>
                 <tr>
                     <th>Ações</th>
@@ -37,11 +37,11 @@
                 @foreach ($categorias as $categoria)
                     <tr>
                         <td>
-                            <a href="/categorias/{{ $categoria->id }}/edit" class="btn btn-outline-primary btn-sm">Editar</a>
+                            <a href="/categorias/{{ $categoria->id }}/edit" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Editar Item"><i class="fas fa-pen"></i></a>
                             <form action="/categorias/{{ $categoria->id }}" class="d-inline-block" method="POST" onSubmit="confirmarExclusao(event)">
                                 @csrf
                                 @method('DELETE')
-                                <button class="btn btn-sm btn-outline-danger">Excluir</button>
+                                <button class="btn btn-sm btn-outline-danger" data-toggle="tooltip" data-placement="top" title="Excluir Item"><i class="fas fa-trash"></i></button>
                             </form>
                         </td>
                         <td>{{ $categoria->descricao }}</td>

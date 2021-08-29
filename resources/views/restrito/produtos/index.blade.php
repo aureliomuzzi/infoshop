@@ -23,13 +23,16 @@
             </div>
         @endif
 
-        <a href="/produtos/create" class="btn btn-primary mb-5">Nova Produtos</a>
+        <a href="/produtos/create" class="btn btn-primary mb-5">Novo Produto</a>
 
-        <table class="table table-striped">
+        <table id="datatable" class="table table-striped">
             <thead>
                 <tr>
                     <th>Ações</th>
+                    <th>Nome</th>
                     <th>Descrição</th>
+                    <th>Categoria</th>
+                    <th>Imagem</th>
                 </tr>
             </thead>
 
@@ -37,14 +40,17 @@
                 @foreach ($produtos as $produto)
                     <tr>
                         <td>
-                            <a href="/produtos/{{ $produto->id }}/edit" class="btn btn-primary btn-sm">Editar</a>
+                            <a href="/produtos/{{ $produto->id }}/edit" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Editar Item"><i class="fas fa-pen"></i></a>
                             <form action="/produtos/{{ $produto->id }}" class="d-inline-block" method="POST" onSubmit="confirmarExclusao(event)">
                                 @csrf
                                 @method('DELETE')
-                                <button class="btn btn-sm btn-danger">Excluir</button>
+                                <button class="btn btn-sm btn-outline-danger" data-toggle="tooltip" data-placement="top" title="Excluir Item"><i class="fas fa-trash"></i></button>
                             </form>
                         </td>
-                        <td>{{ $produto->descricao }}</td>
+                        <td>{{ $produto->nome_do_produto }}</td>
+                        <td>{{ $produto->descricao_do_produto }}</td>
+                        <td>{{ $produto->categoria->descricao }}</td>
+                        <td><img src="{{ $produto->imagem_do_produto }}" height="40px"></td>
                     </tr>
                 @endforeach
             </tbody>

@@ -104,10 +104,9 @@
     {{-- Custom Scripts --}}
     @yield('adminlte_js')
 
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.0/js/jquery.dataTables.min.js" />
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.0/css/jquery.dataTables.min.css" />
-
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="js/sweetalert.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/datatables.min.css"></link>
+    <script src="js/datatables.min.js"></script>
 
     <script>
         function confirmarExclusao(event) {
@@ -133,9 +132,22 @@
             });
         }
 
-        $(document).ready( function () {
-            $('#data-table').DataTable();
-        } );
+        $(function () {
+            $('#datatable').DataTable({
+                language: {
+                    url: "/js/translate_pt-br.json"
+                },
+                paging: true,
+                lengthChange: false,
+                searching: true,
+                ordering: true,
+                info: true,
+                autoWidth: false,
+                responsive: true,
+            });
+
+            $('[data-toggle="tooltip"]').tooltip()
+        });
     </script>
     @yield('javascript')
 

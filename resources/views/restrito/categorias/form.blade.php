@@ -42,7 +42,7 @@
             <input type="text" name="descricao" placeholder="Digite o nome da descrição" class="form-control" value="{{ isset($categoria) ? $categoria->descricao : null }}">
         </div>
 
-        <button type="submit" class="btn btn-primary">Salvar</button>
+        <button type="submit" class="btn btn-success">Salvar</button>
 
         </form>
 

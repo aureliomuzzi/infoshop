@@ -15,7 +15,7 @@ class CategoriaController extends Controller
      */
     public function index()
     {
-        $categorias = Categoria::paginate(3);
+        $categorias = Categoria::paginate(10);
 
         return view('restrito.categorias.index', [
             'categorias' => $categorias

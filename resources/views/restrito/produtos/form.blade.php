@@ -54,15 +54,15 @@
 
             <div class="form-group">
                 <label for="imagem_do_produto">Imagem do Produto</label>
-                <input type="file" name="imagem_do_produto" placeholder="Digite a referência do produto" class="form-control" value="{{ isset($produto) ? $produto->imagem_do_produto : null }}">
+                <input type="file" name="imagem_do_produto" placeholder="Selecione a imagem do produto" class="form-control" value="{{ isset($produto) ? $produto->imagem_do_produto : null }}">
             </div>
 
             <div class="form-group">
-                <label for="categoria_id">Referência do Produto</label>
-                <input type="text" name="categoria_id" placeholder="Informe a Categoria do Produto" class="form-control" value="{{ isset($produto) ? $produto->categoria_id : null }}">
+                <label for="categoria_id">Categoria do produto</label>
+                {!! Form::select('categoria_id', $categorias, null, ['class'=> 'form-control'])  !!}
             </div>
 
-            <button type="submit" class="btn btn-primary">Salvar</button>
+            <button type="submit" class="btn btn-success">Salvar</button>
 
         </form>
         <hr>
