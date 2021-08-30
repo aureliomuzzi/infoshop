@@ -37,14 +37,22 @@ class ProdutoController extends Controller
 
     public function edit(Produto $produto)
     {
+        $categorias = Categoria::pluck('descricao', 'id')->all();
+        $categoriaSelecionada = $produto->categoria()->pluck('id')->all();
+    
         return view('restrito.produtos.form', [
-            'produto' => $produto
+            'produto' => $produto,
+            'categorias' => $categorias,
+            'categoriaSelecionada' => $categoriaSelecionada
         ]);
     }
 
     public function update(ProdutoRequest $request, Produto $produto)
     {
         $dados = $request->all();
+        if ($request->imagem_do_produto) {
+            $dados['imagem_do_produto'] = UploadService::upload($request->imagem_do_produto);
+        }
         $produto->update($dados);
         
         return redirect()->back()->with('mensagem', 'Registro atualizado com sucesso!');

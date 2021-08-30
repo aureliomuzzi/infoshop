@@ -54,12 +54,15 @@
 
             <div class="form-group">
                 <label for="imagem_do_produto">Imagem do Produto</label>
-                <input type="file" name="imagem_do_produto" placeholder="Selecione a imagem do produto" class="form-control" value="{{ isset($produto) ? $produto->imagem_do_produto : null }}">
+                <input type="file" name="imagem_do_produto"/>
+                @if (isset($produto) && $produto->imagem_do_produto)
+                    <img src="{{ $produto->imagem_do_produto }}" alt="" height="100px" class="d-block">
+                @endif
             </div>
 
             <div class="form-group">
                 <label for="categoria_id">Categoria do produto</label>
-                {!! Form::select('categoria_id', $categorias, null, ['class'=> 'form-control'])  !!}
+                {!! Form::select('categoria_id', $categorias, (isset($categoriaSelecionada) ? $categoriaSelecionada : null), ['class'=> 'form-control'])  !!}
             </div>
 
             <button type="submit" class="btn btn-success">Salvar</button>
