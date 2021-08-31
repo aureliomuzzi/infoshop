@@ -107,6 +107,7 @@
     <script src="js/sweetalert.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/datatables.min.css"></link>
     <script src="js/datatables.min.js"></script>
+    <script src="js/chart.min.js"></script>
 
     <script>
         function confirmarExclusao(event) {

@@ -322,14 +322,29 @@ return [
 
     'menu' => [
         [
-            'text' => 'Produtos',
-            'url'  => 'produtos',
-            'icon' => 'fas fa-newspaper'
+            'text' => 'Clientes Cadastrados',
+            'url'  => 'clientes',
+            'icon' => 'fas fa-users',
         ],
         [
-            'text' => 'Categorias',
+            'text' => 'Categorias de Produtos',
             'url'  => 'categorias',
-            'icon' => 'fas fa-fw fa-lock',
+            'icon' => 'fas fa-list-alt',
+        ],
+        [
+            'text' => 'Vitrine da Loja',
+            'url'  => 'produtos',
+            'icon' => 'fas fa-eye'
+        ],
+        [
+            'text' => 'Compra de Insumos',
+            'url'  => 'compras',
+            'icon' => 'fas fa-cube'
+        ],
+        [
+            'text' => 'Vendas de Balcão',
+            'url'  => 'vendas',
+            'icon' => 'fas fa-shopping-cart'
         ],
     ],
 
