@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Restrito\CategoriaController;
 use App\Http\Controllers\Restrito\ProdutoController;
+use App\Http\Controllers\Restrito\ClienteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,5 +25,6 @@ Route::middleware('auth')->group(function() {
 
     Route::resource('categorias', CategoriaController::class);
     Route::resource('produtos', ProdutoController::class);
+    Route::resource('clientes', ClienteController::class);
 });
 

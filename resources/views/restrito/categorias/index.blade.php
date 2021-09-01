@@ -49,6 +49,9 @@
                 @endforeach
             </tbody>
         </table>
+
+        <div style="padding-bottom:5px" class="pagination"> {{$categorias->links() }} </div>
+
     </div>
 </div>
 @stop

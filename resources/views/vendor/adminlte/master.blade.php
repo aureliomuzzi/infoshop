@@ -138,7 +138,7 @@
                 language: {
                     url: "/js/translate_pt-br.json"
                 },
-                paging: true,
+                paging: false,
                 lengthChange: false,
                 searching: true,
                 ordering: true,

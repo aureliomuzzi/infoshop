@@ -56,7 +56,8 @@
             </tbody>
         </table>
 
-        {{ $produtos->links() }}
+        <div style="padding-bottom:5px" class="pagination"> {{$produtos->links() }} </div>
+
     </div>
 </div>
 
