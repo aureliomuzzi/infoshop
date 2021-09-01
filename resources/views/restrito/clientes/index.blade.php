@@ -60,7 +60,7 @@
             </tbody>
         </table>
 
-        <div style="padding-bottom:5px" class="pagination"> {{$clientes->links() }} </div>
+        <div class="pagination"> {{$clientes->links() }} </div>
 
     </div>
 </div>
