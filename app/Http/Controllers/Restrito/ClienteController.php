@@ -29,7 +29,7 @@ class ClienteController extends Controller
      */
     public function create()
     {
-        //
+        return view('restrito.clientes.form');
     }
 
     /**
@@ -38,9 +38,12 @@ class ClienteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ClienteRequest $request)
     {
-        //
+        $dados = $request->all();
+        Cliente::create($dados);
+
+        return redirect()->back()->with('mensagem', 'Registro criado com sucesso!');
     }
 
     /**
@@ -62,7 +65,9 @@ class ClienteController extends Controller
      */
     public function edit(Cliente $cliente)
     {
-        //
+        return view('restrito.clientes.form', [
+            'cliente' => $cliente
+        ]);
     }
 
     /**
@@ -72,9 +77,12 @@ class ClienteController extends Controller
      * @param  \App\Models\Cliente  $cliente
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Cliente $cliente)
+    public function update(ClienteRequest $request, Cliente $cliente)
     {
-        //
+        $dados = $request->all();
+        $cliente->update($dados);
+
+        return redirect()->back()->with('mensagem', 'Registro atualizado com sucesso!');
     }
 
     /**
@@ -85,6 +93,7 @@ class ClienteController extends Controller
      */
     public function destroy(Cliente $cliente)
     {
-        //
+        $cliente->delete();
+        return redirect('/clientes')->with('mensagem', 'Registro excluído com sucesso!');
     }
 }

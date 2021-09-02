@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Produtos')
+@section('title', 'Clientes')
 
 @section('content_header')
-<h1 class="m-0 text-dark"><i class="fas fa-home"></i> Produtos
+<h1 class="m-0 text-dark"><i class="fas fa-home"></i> Clientes
     <small class="text-muted">- Formulário</small>
 </h1>
 @stop
@@ -12,7 +12,7 @@
 <div class="card">
     <div class="card-header">
         <h3 class="card-title">
-            Formulário de Produtos
+            Formulário de Clientes
         </h3>
     </div>
 
@@ -28,41 +28,68 @@
             </div>
         @endif
 
-        @if (isset($produto))
-            <form action="/produtos/{{ $produto->id }}" method="POST">
+        @if (isset($cliente))
+            <form action="/clientes/{{ $cliente->id }}" method="POST">
             @method('PUT')
         @else
-            <form action="/produtos" method="POST" enctype="multipart/form-data">
+            <form action="/clientes" method="POST" enctype="multipart/form-data">
         @endif
 
             @csrf
 
             <div class="form-group">
-                <label for="nome_do_produto">Nome do Produto</label>
-                <input type="text" name="nome_do_produto" placeholder="Digite o nome do produto" class="form-control" value="{{ isset($produto) ? $produto->nome_do_produto : null }}">
+                <label for="nome">Nome do Cliente</label>
+                <input type="text" name="nome" placeholder="Digite o nome do cliente" class="form-control" value="{{ isset($cliente) ? $cliente->nome : null }}">
             </div>
 
             <div class="form-group">
-                <label for="descricao_do_produto">Descrição do Produto</label>
-                <input type="text" name="descricao_do_produto" placeholder="Digite a descrição do produto" class="form-control" value="{{ isset($produto) ? $produto->descricao_do_produto : null }}">
+                <label for="documento">CPF ou CNPJ</label>
+                <input type="text" name="documento" placeholder="Numero de CPF ou CNPJ" class="form-control" value="{{ isset($cliente) ? $cliente->documento : null }}">
             </div>
 
             <div class="form-group">
-                <label for="referencia_do_produto">Referência do Produto</label>
-                <input type="text" name="referencia_do_produto" placeholder="Digite a referência do produto" class="form-control" value="{{ isset($produto) ? $produto->referencia_do_produto : null }}">
+                <label for="email">Email</label>
+                <input type="email" name="email" placeholder="Digite email principal" class="form-control" value="{{ isset($cliente) ? $cliente->email : null }}">
             </div>
 
             <div class="form-group">
-                <label for="imagem_do_produto">Imagem do Produto</label>
-                <input type="file" name="imagem_do_produto"/>
-                @if (isset($produto) && $produto->imagem_do_produto)
-                    <img src="{{ $produto->imagem_do_produto }}" alt="" height="100px" class="d-block">
-                @endif
+                <label for="whatsapp">Whatsapp</label>
+                <input type="whatsapp" name="whatsapp" placeholder="Digite número Whatsapp principal" class="form-control" value="{{ isset($cliente) ? $cliente->whatsapp : null }}">
             </div>
 
             <div class="form-group">
-                <label for="categoria_id">Categoria do produto</label>
-                {!! Form::select('categoria_id', $categorias, (isset($categoriaSelecionada) ? $categoriaSelecionada : null), ['class'=> 'form-control'])  !!}
+                <label for="cep">CEP</label>
+                <input type="cep" name="cep" placeholder="Digite número cep principal" class="form-control" value="{{ isset($cliente) ? $cliente->cep : null }}">
+            </div>
+
+            <div class="form-group">
+                <label for="logradouro">Logradouro</label>
+                <input type="logradouro" name="logradouro" placeholder="Digite logradouro" class="form-control" value="{{ isset($cliente) ? $cliente->logradouro : null }}">
+            </div>
+
+            <div class="form-group">
+                <label for="numero">Numero</label>
+                <input type="numero" name="numero" placeholder="Digite numero" class="form-control" value="{{ isset($cliente) ? $cliente->numero : null }}">
+            </div>
+
+            <div class="form-group">
+                <label for="complemento">Complemento</label>
+                <input type="complemento" name="complemento" placeholder="Digite o complemento" class="form-control" value="{{ isset($cliente) ? $cliente->complemento : null }}">
+            </div>
+
+            <div class="form-group">
+                <label for="bairro">Bairro</label>
+                <input type="bairro" name="bairro" placeholder="Digite bairro" class="form-control" value="{{ isset($cliente) ? $cliente->bairro : null }}">
+            </div>
+
+            <div class="form-group">
+                <label for="localidade">Localidade</label>
+                <input type="localidade" name="localidade" placeholder="Digite a localidade" class="form-control" value="{{ isset($cliente) ? $cliente->localidade : null }}">
+            </div>
+
+            <div class="form-group">
+                <label for="uf">UF</label>
+                <input type="uf" name="uf" placeholder="Digite a UF" class="form-control" value="{{ isset($cliente) ? $cliente->uf : null }}">
             </div>
 
             <button type="submit" class="btn btn-success">Salvar</button>

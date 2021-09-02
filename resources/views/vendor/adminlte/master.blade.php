@@ -143,31 +143,22 @@
 
             $('[data-toggle="tooltip"]').tooltip()
 
-            /* ChartJS
-            * -------
-            * Here we will create a few charts using ChartJS
-            */
-
-            //--------------
-            //- AREA CHART -
-            //--------------
-
-            // Get context with jQuery - using jQuery's .get() method.
+            // Gráfico de Estoque por Categoria
             var areaChartCanvas = $('#estoque').get(0).getContext('2d')
 
             var areaChartData = {
                 labels  : ['Eletronicos', 'Smartphone', 'Computadores', 'Notebooks', 'Softwares', 'Perifericos'],
                 datasets: [
                     {
-                    label               : 'Produtos em Estoque',
-                    backgroundColor     : 'rgba(60,141,188,0.9)',
-                    borderColor         : 'rgba(60,141,188,0.8)',
-                    pointRadius          : false,
-                    pointColor          : '#3b8bba',
-                    pointStrokeColor    : 'rgba(60,141,188,1)',
-                    pointHighlightFill  : '#fff',
-                    pointHighlightStroke: 'rgba(60,141,188,1)',
-                    data                : [28, 48, 40, 19, 86, 27, 90]
+                        label               : 'Produtos em Estoque',
+                        backgroundColor     : 'rgba(60,141,188,0.9)',
+                        borderColor         : 'rgba(60,141,188,0.8)',
+                        pointRadius          : false,
+                        pointColor          : '#3b8bba',
+                        pointStrokeColor    : 'rgba(60,141,188,1)',
+                        pointHighlightFill  : '#fff',
+                        pointHighlightStroke: 'rgba(60,141,188,1)',
+                        data                : [28, 48, 40, 19, 86, 27, 90]
                     },
                 ]
             }
@@ -199,9 +190,7 @@
                 options: areaChartOptions
             })
 
-            //-------------
-            //- LINE CHART -
-            //--------------
+            // Gráfico Despesas x Receitas
             var myChart1 = document.getElementById('receita-despesa').getContext('2d');
 
             var massPopChart = new Chart(myChart1, {
@@ -220,18 +209,9 @@
                             20252
                         ],
                         backgroundColor:'green',
-                        // backgroundColor:[
-                        //     'rgba(255, 99, 132, 0.6)',
-                        //     'rgba(54, 162, 235, 0.6)',
-                        //     'rgba(255, 206, 86, 0.6)',
-                        //     'rgba(75, 192, 192, 0.6)',
-                        //     'rgba(153, 102, 255, 0.6)',
-                        //     'rgba(255, 159, 64, 0.6)',
-                        //     'rgba(255, 99, 132, 0.6)'
-                        // ],
-                        borderWidth:1,
+                        borderWidth:2,
                         borderColor:'#777',
-                        hoverBorderWidth:3,
+                        hoverBorderWidth:10,
                         hoverBorderColor:'#000'
                     },
                     {
@@ -244,47 +224,38 @@
                             13000,
                             2052
                         ],
-                        backgroundColor:'red',
-                        // backgroundColor:[
-                        //     'rgba(255, 99, 132, 0.6)',
-                        //     'rgba(54, 162, 235, 0.6)',
-                        //     'rgba(255, 206, 86, 0.6)',
-                        //     'rgba(75, 192, 192, 0.6)',
-                        //     'rgba(153, 102, 255, 0.6)',
-                        //     'rgba(255, 159, 64, 0.6)',
-                        //     'rgba(255, 99, 132, 0.6)'
-                        // ],
-                        borderWidth:1,
+                        backgroundColor:'purple',
+                        borderWidth:2,
                         borderColor:'#777',
-                        hoverBorderWidth:3,
+                        hoverBorderWidth:10,
                         hoverBorderColor:'#000'
                     }
                 ]
             },
             options:{
                 title:{
-                display:true,
-                text:'Largest Cities In Massachusetts',
-                fontSize:25,
-                responsive: true
+                    display:true,
+                    text:'Largest Cities In Massachusetts',
+                    fontSize:25,
+                    responsive: true
                 },
                 legend:{
-                display:true,
-                position:'right',
-                labels:{
-                    fontColor:'#000'
-                }
+                    display:true,
+                    position:'right',
+                    labels:{
+                        fontColor:'#000'
+                    }
                 },
                 layout:{
-                padding:{
-                    left:50,
-                    right:0,
-                    bottom:0,
-                    top:0
-                }
+                    padding:{
+                        left:50,
+                        right:0,
+                        bottom:0,
+                        top:0
+                    }
                 },
                 tooltips:{
-                enabled:true
+                    enabled:true
                 }
             }
             });
