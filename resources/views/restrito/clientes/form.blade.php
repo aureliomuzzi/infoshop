@@ -54,7 +54,7 @@
 
             <div class="form-group">
                 <label for="whatsapp">Whatsapp</label>
-                <input type="whatsapp" name="whatsapp" placeholder="Digite número Whatsapp principal" class="form-control" value="{{ isset($cliente) ? $cliente->whatsapp : null }}">
+                <input type="whatsapp" name="whatsapp" placeholder="Digite número Whatsapp principal" class="form-control isFone" value="{{ isset($cliente) ? $cliente->whatsapp : null }}">
             </div>
 
             <div class="form-group">

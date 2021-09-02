@@ -108,6 +108,7 @@
     <link rel="stylesheet" type="text/css" href="css/datatables.min.css"></link>
     <script src="js/datatables.min.js"></script>
     <script src="js/chart.min.js"></script>
+    <script src="js/jquery.mask.min.js"></script>
 
     <script>
         function confirmarExclusao(event) {
@@ -141,7 +142,9 @@
                 paging: false
             });
 
-            $('[data-toggle="tooltip"]').tooltip()
+            $('[data-toggle="tooltip"]').tooltip();
+
+            $('.isFone').mask('(00) 00000-0000');
 
             // Gráfico de Estoque por Categoria
             var areaChartCanvas = $('#estoque').get(0).getContext('2d')
