@@ -339,12 +339,17 @@ return [
         [
             'text' => 'Compra de Insumos',
             'url'  => 'compras',
-            'icon' => 'fas fa-cube'
+            'icon' => 'fas fa-hand-holding-usd'
         ],
         [
             'text' => 'Vendas de Balcão',
             'url'  => 'vendas',
             'icon' => 'fas fa-shopping-cart'
+        ],
+        [
+            'text' => 'Controle de Estoque',
+            'url'  => 'estoque',
+            'icon' => 'fas fa-cube'
         ],
     ],
 
@@ -404,7 +409,7 @@ return [
             ],
         ],
         'Select2' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
