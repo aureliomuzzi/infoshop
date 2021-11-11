@@ -5,6 +5,8 @@ use App\Http\Controllers\Restrito\CategoriaController;
 use App\Http\Controllers\Restrito\ProdutoController;
 use App\Http\Controllers\Restrito\ClienteController;
 use App\Http\Controllers\Restrito\EstoqueController;
+use App\Http\Controllers\Restrito\FornecedorController;
+use App\Http\Controllers\Restrito\CompraController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,5 +30,7 @@ Route::middleware('auth')->group(function() {
     Route::resource('produtos', ProdutoController::class);
     Route::resource('clientes', ClienteController::class);
     Route::resource('estoque', EstoqueController::class);
+    Route::resource('fornecedor', FornecedorController::class);
+    Route::resource('compra', CompraController::class);
 });
 

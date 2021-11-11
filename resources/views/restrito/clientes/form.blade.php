@@ -59,37 +59,37 @@
 
             <div class="form-group">
                 <label for="cep">CEP</label>
-                <input type="cep" name="cep" placeholder="Digite número cep principal" class="form-control" value="{{ isset($cliente) ? $cliente->cep : null }}">
+                <input type="cep" id="cep" name="cep" placeholder="Digite número cep principal" class="form-control" value="{{ isset($cliente) ? $cliente->cep : null }}">
             </div>
 
             <div class="form-group">
                 <label for="logradouro">Logradouro</label>
-                <input type="logradouro" name="logradouro" placeholder="Digite logradouro" class="form-control" value="{{ isset($cliente) ? $cliente->logradouro : null }}">
+                <input type="logradouro" id="logradouro" name="logradouro" placeholder="Digite logradouro" class="form-control" value="{{ isset($cliente) ? $cliente->logradouro : null }}">
             </div>
 
             <div class="form-group">
                 <label for="numero">Numero</label>
-                <input type="numero" name="numero" placeholder="Digite numero" class="form-control" value="{{ isset($cliente) ? $cliente->numero : null }}">
+                <input type="numero" id="numero" name="numero" placeholder="Digite numero" class="form-control" value="{{ isset($cliente) ? $cliente->numero : null }}">
             </div>
 
             <div class="form-group">
                 <label for="complemento">Complemento</label>
-                <input type="complemento" name="complemento" placeholder="Digite o complemento" class="form-control" value="{{ isset($cliente) ? $cliente->complemento : null }}">
+                <input type="complemento" id="complemento" name="complemento" placeholder="Digite o complemento" class="form-control" value="{{ isset($cliente) ? $cliente->complemento : null }}">
             </div>
 
             <div class="form-group">
                 <label for="bairro">Bairro</label>
-                <input type="bairro" name="bairro" placeholder="Digite bairro" class="form-control" value="{{ isset($cliente) ? $cliente->bairro : null }}">
+                <input type="bairro" id="bairro" name="bairro" placeholder="Digite bairro" class="form-control" value="{{ isset($cliente) ? $cliente->bairro : null }}">
             </div>
 
             <div class="form-group">
                 <label for="localidade">Localidade</label>
-                <input type="localidade" name="localidade" placeholder="Digite a localidade" class="form-control" value="{{ isset($cliente) ? $cliente->localidade : null }}">
+                <input type="localidade" id="localidade" name="localidade" placeholder="Digite a localidade" class="form-control" value="{{ isset($cliente) ? $cliente->localidade : null }}">
             </div>
 
             <div class="form-group">
                 <label for="uf">UF</label>
-                <input type="uf" name="uf" placeholder="Digite a UF" class="form-control" value="{{ isset($cliente) ? $cliente->uf : null }}">
+                <input type="uf" id="uf" name="uf" placeholder="Digite a UF" class="form-control" value="{{ isset($cliente) ? $cliente->uf : null }}">
             </div>
 
             <button type="submit" class="btn btn-success">Salvar</button>

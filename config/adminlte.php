@@ -332,13 +332,18 @@ return [
             'icon' => 'fas fa-list-alt',
         ],
         [
+            'text' => 'Fornecedor',
+            'url'  => 'fornecedor',
+            'icon' => 'fas fa-list-alt',
+        ],
+        [
             'text' => 'Vitrine da Loja',
             'url'  => 'produtos',
             'icon' => 'fas fa-eye'
         ],
         [
             'text' => 'Compra de Insumos',
-            'url'  => 'compras',
+            'url'  => 'compra',
             'icon' => 'fas fa-hand-holding-usd'
         ],
         [

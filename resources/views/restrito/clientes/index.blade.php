@@ -52,7 +52,7 @@
                         <td>{{ $cliente->nome }}</td>
                         <td>{{ $cliente->documento }}</td>
                         <td>{{ $cliente->email }}</td>
-                        <td>{{ $cliente->whatsapp }}</td>
+                        <td class="isFone">{{ $cliente->whatsapp }}</td>
                         <td>{{ $cliente->created_at->format('d/m/Y H:i') }}</td>
                         <td>{{ $cliente->updated_at->format('d/m/Y H:i') }}</td>
                     </tr>

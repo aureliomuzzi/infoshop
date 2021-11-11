@@ -104,11 +104,11 @@
     {{-- Custom Scripts --}}
     @yield('adminlte_js')
 
-    <script src="js/sweetalert.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/datatables.min.css"></link>
-    <script src="js/datatables.min.js"></script>
-    <script src="js/chart.min.js"></script>
-    <script src="js/jquery.mask.min.js"></script>
+    <script src="/js/sweetalert.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/datatables.min.css"></link>
+    <script src="/js/datatables.min.js"></script>
+    <script src="/js/chart.min.js"></script>
+    <script src="/js/jquery.mask.min.js"></script>
 
     <script>
         function confirmarExclusao(event) {
@@ -143,8 +143,6 @@
             });
 
             $('[data-toggle="tooltip"]').tooltip();
-
-            $('.isFone').mask('(00) 00000-0000');
 
             // Gráfico de Estoque por Categoria
             var areaChartCanvas = $('#estoque').get(0).getContext('2d')
@@ -265,6 +263,66 @@
 
         });
 
+        // API ViaCEP -- Inicio --
+            var inputsCEP = $('#logradouro, #bairro, #localidade, #uf', '#cep');
+            var inputsRUA = $('#cep, #bairro');
+            var validacep = /^[0-9]{8}$/;
+
+            function limpar(alerta) {
+                if (alerta !== undefined) {
+                    swal({
+                        title: alerta,
+                        icon: "warning",
+                        buttons:{
+                            cancel: "Fechar"
+                        }
+                    });
+                    inputsCEP.val('');
+                }
+            }
+
+            function get(url) {
+                $.get(url, function(data) {
+                    if (!("erro" in data)) {
+                        if (Object.prototype.toString.call(data) === '[object Array]') {
+                            var data = data[0];
+                        }
+                        $.each(data, function(nome, info) {
+                            $('#' + nome).val(nome === 'cep' ? info.replace(/\D/g, '') : info).attr('info', nome === 'cep' ? info.replace(/\D/g, '') : info);
+                        });
+                    } else {
+                        limpar("CEP não encontrado.");
+                    }
+                });
+            }
+            // Digitando CEP
+            $('#cep').on('blur', function(e) {
+                var cep = $('#cep').val().replace(/\D/g, '');
+                if (cep !== "" && validacep.test(cep)) {
+                    inputsCEP.val('Localizando...');
+                    get('https://viacep.com.br/ws/' + cep + '/json/');
+                } else {
+                    limpar(cep == "" ? undefined : "Formato de CEP inválido.");
+                }
+            });
+        // API ViaCEP -- Fim --
+
+        $('.isFone').mask('(00) 00000-0000');
+        $('.isCPF').mask('000.000.000-00');
+        $('.isCNPJ').mask('00.000.000/0000-00');
+
+        window.onload = () => {
+            $("#tipoPessoa").on('change', function(e){
+                var tipoDocumento;
+                if ($(this).val() == 'PF') {
+                    $("#documento").val('');
+                    $("#documento").mask('000.000.000-00');
+                } else if($(this).val() == 'PJ') {
+                    $("#documento").val('');
+                    $("#documento").mask('00.000.000/0000-00');
+                }
+            });
+        }
     </script>
     @yield('javascript')
 
