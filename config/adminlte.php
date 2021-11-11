@@ -322,17 +322,17 @@ return [
 
     'menu' => [
         [
-            'text' => 'Clientes Cadastrados',
+            'text' => 'Clientes',
             'url'  => 'clientes',
             'icon' => 'fas fa-users',
         ],
         [
-            'text' => 'Categorias de Produtos',
+            'text' => 'Categoria de Produtos',
             'url'  => 'categorias',
-            'icon' => 'fas fa-list-alt',
+            'icon' => 'fas fa-list',
         ],
         [
-            'text' => 'Fornecedor',
+            'text' => 'Fornecedores',
             'url'  => 'fornecedor',
             'icon' => 'fas fa-list-alt',
         ],

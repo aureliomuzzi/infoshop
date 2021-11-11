@@ -67,7 +67,9 @@ class FornecedorController extends Controller
      */
     public function show(Fornecedor $fornecedor)
     {
-        //
+        return view('restrito.fornecedores.show', [
+            'fornecedor' => Fornecedor::find($fornecedor->id),
+        ]);
     }
 
     /**

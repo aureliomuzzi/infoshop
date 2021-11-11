@@ -49,6 +49,7 @@
                                 @method('DELETE')
                                 <button class="btn btn-sm btn-outline-danger" data-toggle="tooltip" data-placement="top" title="Excluir Item"><i class="fas fa-trash"></i></button>
                             </form>
+                            <a href="/fornecedor/{{ $fornecedor->id }}" class="btn btn-outline-info btn-sm" data-toggle="tooltip" data-placement="top" title="Exibir Informações Completas"><i class="fas fa-eye"></i></a>
                         </td>
                         <td>{{ $fornecedor->nome }}</td>
                         <td>{{ $fornecedor->tipo_formatado }}</td>
