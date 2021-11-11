@@ -52,20 +52,26 @@
                         </td>
                         <td>{{ $fornecedor->nome }}</td>
                         <td>{{ $fornecedor->tipo_formatado }}</td>
-                        <td class="isCNPJ">{{ $fornecedor->documento }}</td>
+
+                        @if ($fornecedor->tipo == "PF")
+                            <td class="isCPF">{{ $fornecedor->documento }}</td>
+                        @else
+                            <td class="isCNPJ">{{ $fornecedor->documento }}</td>
+                        @endif
+
                         <td>{{ $fornecedor->uf }}</td>
                         <td>{{ $fornecedor->created_at->format('d/m/Y H:i') }}</td>
                         <td>{{ $fornecedor->updated_at->format('d/m/Y H:i') }}</td>
-                        <td>
-                            @switch($fornecedor->status_formatado)
-                                @case("Ativo")
-                                    <span class="badge badge-primary">Ativo</span>
-                                    @break
-                                @case("Inativo")
-                                    <span class="badge badge-danger">Inativo</span>
-                                    @break
-                            @endswitch
-                        </td>
+
+                        @switch($fornecedor->status)
+                            @case(1)
+                                <td><span class="badge badge-primary">{{ $fornecedor->status_formatado }}</span></td>
+                                @break
+                            @case(0)
+                                <td><span class="badge badge-danger">{{ $fornecedor->status_formatado }}</span></td>
+                                @break
+                        @endswitch
+
                     </tr>
                 @endforeach
             </tbody>

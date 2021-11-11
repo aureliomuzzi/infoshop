@@ -26,13 +26,17 @@ class ClienteRequest extends FormRequest
     {
         return [
             'nome' => 'required',
+            'tipo' => 'required',
+            'documento' => 'required',
         ];
     }
 
     public function messages()
     {
         return [
-            'nome.required' => 'O campo nome é obrigatório',
+            'nome.required' => 'O campo Nome do Cliente é obrigatório',
+            'tipo.required' => 'O campo Tipo é obrigatório',
+            'documento.required' => 'O campo CPF ou CNPJ é obrigatório'
         ];
     }
 }

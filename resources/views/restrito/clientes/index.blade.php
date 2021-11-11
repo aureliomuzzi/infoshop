@@ -30,6 +30,7 @@
                 <tr>
                     <th>Ações</th>
                     <th>Nome</th>
+                    <th>Tipo</th>
                     <th>Documento</th>
                     <th>Email</th>
                     <th>Whatsapp</th>
@@ -50,7 +51,14 @@
                             </form>
                         </td>
                         <td>{{ $cliente->nome }}</td>
-                        <td>{{ $cliente->documento }}</td>
+                        <td>{{ $cliente->tipo_formatado }}</td>
+
+                        @if ($cliente->tipo == "PF")
+                            <td class="isCPF">{{ $cliente->documento }}</td>
+                        @else
+                            <td class="isCNPJ">{{ $cliente->documento }}</td>
+                        @endif
+
                         <td>{{ $cliente->email }}</td>
                         <td class="isFone">{{ $cliente->whatsapp }}</td>
                         <td>{{ $cliente->created_at->format('d/m/Y H:i') }}</td>

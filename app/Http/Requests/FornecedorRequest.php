@@ -34,10 +34,10 @@ class FornecedorRequest extends FormRequest
     public function messages()
     {
         return [
-            'nome.required' => 'O campo nome é obrigatório',
-            'status.required' => 'O campo status é obrigatório',
-            'tipo.required' => 'O tipo de pessoa é obrigatório',
-            'documento.required' => 'O número de documento é obrigatório',
+            'nome.required' => 'O campo Nome do Fornecedor é obrigatório',
+            'status.required' => 'O campo Status é obrigatório',
+            'tipo.required' => 'O Tipo de Pessoa é obrigatório',
+            'documento.required' => 'O número de CPF ou CNPJ é obrigatório',
         ];
     }
 }

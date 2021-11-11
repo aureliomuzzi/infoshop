@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Restrito;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ClienteRequest;
 use App\Models\Cliente;
+use App\Helpers\FuncoesHelper;
 
 class ClienteController extends Controller
 {
@@ -40,10 +41,24 @@ class ClienteController extends Controller
      */
     public function store(ClienteRequest $request)
     {
-        $dados = $request->all();
+        $dados = [
+            'nome' => $request->nome,
+            'tipo' => $request->tipo,
+            'documento' => FuncoesHelper::removerCaracter($request->documento),
+            'email' => $request->email,
+            'whatsapp' => FuncoesHelper::removerCaracter($request->whatsapp),
+            'cep' => $request->cep,
+            'logradouro' => $request->logradouro,
+            'numero' => $request->numero,
+            'complemento' => $request->complemento,
+            'bairro' => $request->bairro,
+            'localidade' => $request->localidade,
+            'uf' => $request->uf,
+        ];
+
         Cliente::create($dados);
 
-        return redirect()->back()->with('mensagem', 'Registro criado com sucesso!');
+        return redirect('/clientes')->with('mensagem', 'Registro criado com sucesso!');
     }
 
     /**
@@ -79,10 +94,24 @@ class ClienteController extends Controller
      */
     public function update(ClienteRequest $request, Cliente $cliente)
     {
-        $dados = $request->all();
+        $dados = [
+            'nome' => $request->nome,
+            'tipo' => $request->tipo,
+            'documento' => FuncoesHelper::removerCaracter($request->documento),
+            'email' => $request->email,
+            'whatsapp' => FuncoesHelper::removerCaracter($request->whatsapp),
+            'cep' => $request->cep,
+            'logradouro' => $request->logradouro,
+            'numero' => $request->numero,
+            'complemento' => $request->complemento,
+            'bairro' => $request->bairro,
+            'localidade' => $request->localidade,
+            'uf' => $request->uf,
+        ];
+
         $cliente->update($dados);
 
-        return redirect()->back()->with('mensagem', 'Registro atualizado com sucesso!');
+        return redirect('/clientes')->with('mensagem', 'Registro criado com sucesso!');
     }
 
     /**

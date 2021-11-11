@@ -43,8 +43,17 @@
             </div>
 
             <div class="form-group">
+                <label for="tipo">Tipo</label>
+                <select id="tipoPessoa" name="tipo" class="form-control isTipo">
+                    <option value="">Selecione o tipo de pessoa...</option>
+                    <option value="PF" {{ isset($cliente) && $cliente->tipo == "PF" ? "selected='selected'" : "" }}>Pessoa Física</option>
+                    <option value="PJ" {{ isset($cliente) && $cliente->tipo == "PJ" ? "selected='selected'" : "" }}>Pessoa Jurídica</option>
+                </select>
+            </div>
+
+            <div class="form-group">
                 <label for="documento">CPF ou CNPJ</label>
-                <input type="text" name="documento" placeholder="Numero de CPF ou CNPJ" class="form-control" value="{{ isset($cliente) ? $cliente->documento : null }}">
+                <input type="text" id="documento" name="documento" placeholder="Numero de CPF ou CNPJ" class="form-control" value="{{ isset($cliente) ? $cliente->documento : null }}">
             </div>
 
             <div class="form-group">

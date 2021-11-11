@@ -92,7 +92,21 @@ class FornecedorController extends Controller
      */
     public function update(FornecedorRequest $request, Fornecedor $fornecedor)
     {
-        $dados = $request->all();
+        $dados = [
+            'nome' => $request->nome,
+            'fantasia' => $request->fantasia,
+            'tipo' => $request->tipo,
+            'documento' => FuncoesHelper::removerCaracter($request->documento),
+            'status' => $request->status,
+            'cep' => $request->cep,
+            'logradouro' => $request->logradouro,
+            'numero' => $request->numero,
+            'complemento' => $request->complemento,
+            'bairro' => $request->bairro,
+            'localidade' => $request->localidade,
+            'uf' => $request->uf
+        ];
+
         $fornecedor->update($dados);
 
         return redirect('/fornecedor')->with('mensagem', 'Registro atualizado com sucesso!');
