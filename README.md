@@ -3,11 +3,3 @@
 ## Projeto do Curso de Laravel do IFPK
 
 Loja de produtos de Informática feito em Laravel 8 com banco de dados MySQL e plugins do AdminLTE 3 para gerenciamento de Dashboard.
-
-## Equipe
-
-Marcelo Santos | 
-Anderson Moura | 
-Dennis Gomes | 
-Aurelio Muzzi
-
